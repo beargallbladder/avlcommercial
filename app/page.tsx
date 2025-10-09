@@ -6,18 +6,21 @@ import { Building2, MapPin, Phone, Mail, Car, Calendar, TrendingUp, Users } from
 const GALLERY = [
   { 
     src: "/images/building-exterior.jpg", 
+    fallback: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop",
     alt: "530 Merrimon Avenue - Building Exterior with Office Space Available Sign",
     credit: "Property Photo",
     href: "#"
   },
   { 
     src: "/images/building-frontage.jpg",
+    fallback: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop",
     alt: "Building frontage showing units 530, B, C, D, E with Designer Maid and Southeastern Physical Therapy signage",
     credit: "Property Photo",
     href: "#"
   },
   { 
     src: "/images/property-details.jpg",
+    fallback: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop",
     alt: "Property overview showing building facts, parking, and transportation details",
     credit: "Property Information",
     href: "#"
@@ -62,6 +65,9 @@ export default function Home() {
                 src={GALLERY[activeImage].src}
                 alt={GALLERY[activeImage].alt}
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.currentTarget.src = GALLERY[activeImage].fallback;
+                }}
               />
               <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded text-sm">
                 <a href={GALLERY[activeImage].href} target="_blank" rel="noopener noreferrer" className="hover:underline">
@@ -80,7 +86,14 @@ export default function Home() {
                     activeImage === idx ? 'border-primary-600 ring-2 ring-primary-200' : 'border-gray-300 hover:border-gray-400'
                   }`}
                 >
-                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+                  <img 
+                    src={img.src} 
+                    alt={img.alt} 
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = img.fallback;
+                    }}
+                  />
                 </button>
               ))}
             </div>
