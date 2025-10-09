@@ -5,22 +5,22 @@ import { Building2, MapPin, Phone, Mail, Car, Calendar, TrendingUp, Users } from
 
 const GALLERY = [
   { 
-    src: "https://images.loopnet.com/d2/HqkB0aEbf7yN6fwDHrF4pQpMH-6_VxgXaDPqf7rQKlM/document.jpg", 
-    alt: "530 Merrimon Avenue - Building Exterior",
-    credit: "Image via LoopNet",
-    href: "https://www.loopnet.com/Listing/530-Merrimon-Ave-Asheville-NC/9841647/"
+    src: "/images/building-exterior.jpg", 
+    alt: "530 Merrimon Avenue - Building Exterior with Office Space Available Sign",
+    credit: "Property Photo",
+    href: "#"
   },
   { 
-    src: "https://images.crexi.com/listings/306754/photos/2f4c5e8e-1f3e-4f3e-9f3e-1f3e2f4c5e8e.jpg",
-    alt: "Front parking lot view",
-    credit: "Image via Crexi",
-    href: "https://www.crexi.com/properties/530-merrimon-avenue-asheville-north-carolina"
+    src: "/images/building-frontage.jpg",
+    alt: "Building frontage showing units 530, B, C, D, E with Designer Maid and Southeastern Physical Therapy signage",
+    credit: "Property Photo",
+    href: "#"
   },
   { 
-    src: "https://images.loopnet.com/d2/mHDRpnS_ZQWJX5h3KzBVPvXxY8YfNJZ8h3KzBVPvXxY/document.jpg",
-    alt: "Aerial view of property and surrounding area",
-    credit: "Image via LoopNet", 
-    href: "https://www.loopnet.com/Listing/530-Merrimon-Ave-Asheville-NC/9841647/"
+    src: "/images/property-details.jpg",
+    alt: "Property overview showing building facts, parking, and transportation details",
+    credit: "Property Information",
+    href: "#"
   }
 ]
 
@@ -94,23 +94,23 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="bg-white p-6 rounded-lg shadow text-center">
               <Calendar className="h-8 w-8 text-primary-600 mx-auto mb-2" />
-              <div className="text-3xl font-bold text-gray-900">Feb 2024</div>
-              <div className="text-gray-600">New Roof</div>
+              <div className="text-3xl font-bold text-gray-900">1972</div>
+              <div className="text-gray-600">Year Built</div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow text-center">
               <Car className="h-8 w-8 text-primary-600 mx-auto mb-2" />
-              <div className="text-3xl font-bold text-gray-900">~33</div>
+              <div className="text-3xl font-bold text-gray-900">33</div>
               <div className="text-gray-600">Parking Spaces</div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow text-center">
-              <TrendingUp className="h-8 w-8 text-primary-600 mx-auto mb-2" />
-              <div className="text-3xl font-bold text-gray-900">~18K</div>
-              <div className="text-gray-600">VPD Traffic</div>
+              <Building2 className="h-8 w-8 text-primary-600 mx-auto mb-2" />
+              <div className="text-3xl font-bold text-gray-900">5,850 SF</div>
+              <div className="text-gray-600">Building Size</div>
             </div>
             <div className="bg-white p-6 rounded-lg shadow text-center">
-              <Building2 className="h-8 w-8 text-primary-600 mx-auto mb-2" />
-              <div className="text-3xl font-bold text-gray-900">~162'</div>
-              <div className="text-gray-600">Frontage</div>
+              <TrendingUp className="h-8 w-8 text-primary-600 mx-auto mb-2" />
+              <div className="text-3xl font-bold text-gray-900">$18/SF</div>
+              <div className="text-gray-600">Lease Rate</div>
             </div>
           </div>
         </div>
@@ -129,11 +129,11 @@ export default function Home() {
                 Location & Access
               </h4>
               <ul className="space-y-2 text-gray-700">
-                <li>• High-visibility Merrimon Avenue corridor</li>
-                <li>• ~18,000 vehicles per day (VPD)</li>
-                <li>• ~1.4 miles to I-240/Downtown Asheville</li>
-                <li>• Near UNCA and Grove Park</li>
-                <li>• ~162 feet of street frontage</li>
+                <li>• Merrimon Ave (US Hwy 25) in North Asheville</li>
+                <li>• 22 minutes to Asheville Regional Airport (15.9 mi)</li>
+                <li>• High-visibility corridor with excellent signage</li>
+                <li>• Bus line access available</li>
+                <li>• 24-hour access for tenants</li>
               </ul>
             </div>
 
@@ -144,34 +144,26 @@ export default function Home() {
                 Parking & Infrastructure
               </h4>
               <ul className="space-y-2 text-gray-700">
-                <li>• ~33 parking spaces (front + rear)</li>
-                <li>• ADA-compliant spaces included</li>
-                <li>• New roof installed February 2024</li>
-                <li>• 
-                  <a 
-                    href="https://codelibrary.amlegal.com/codes/ashevillenc/latest/asheville_nc/0-0-0-6668" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-primary-600 hover:underline"
-                  >
-                    Asheville UDO §7-11-2
-                  </a> requires 2 accessible spaces for 26–50 space lots
-                </li>
+                <li>• 33 surface parking spaces</li>
+                <li>• ADA accessible parking available</li>
+                <li>• Building Class C, 1 story</li>
+                <li>• Central heating and air conditioning</li>
+                <li>• Storage space available</li>
               </ul>
             </div>
 
-            {/* Suitable Uses */}
+            {/* Available Spaces */}
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <Building2 className="h-6 w-6 text-primary-600" />
-                Suitable Uses
+                Available Spaces
               </h4>
               <ul className="space-y-2 text-gray-700">
-                <li>• Retail spaces</li>
-                <li>• Professional offices</li>
-                <li>• Medical/dental practices</li>
-                <li>• Spa and wellness centers</li>
-                <li>• Plumbed rooms available</li>
+                <li>• Three suites currently available</li>
+                <li>• Sizes ranging from 1,000 SF to 1,450 SF</li>
+                <li>• $18/SF lease rate (includes taxes & insurance)</li>
+                <li>• Monument signage available</li>
+                <li>• Reception area available</li>
               </ul>
             </div>
 
