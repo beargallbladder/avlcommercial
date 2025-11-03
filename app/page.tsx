@@ -63,16 +63,9 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <img 
-                src="/logo.svg" 
+                src="/images/avlcommerciallog.png" 
                 alt="AVL Commercial LLC Logo" 
                 className="h-12 w-auto"
-                onError={(e) => {
-                  // Fallback to PNG if SVG doesn't exist
-                  const target = e.currentTarget as HTMLImageElement;
-                  if (target.src.endsWith('.svg')) {
-                    target.src = '/logo.png';
-                  }
-                }}
               />
             </div>
             <a href="mailto:sam@ashevilleapt.com,helen@ashevilleapt.com" className="btn-primary">
@@ -89,16 +82,9 @@ export default function Home() {
             {/* Main Logo */}
             <div className="flex justify-center mb-8">
               <img 
-                src="/logo.svg" 
+                src="/images/avlcommerciallog.png" 
                 alt="AVL Commercial LLC Logo" 
                 className="h-48 w-auto max-w-full"
-                onError={(e) => {
-                  // Fallback to PNG if SVG doesn't exist
-                  const target = e.currentTarget as HTMLImageElement;
-                  if (target.src.endsWith('.svg')) {
-                    target.src = '/logo.png';
-                  }
-                }}
               />
             </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-2">530 Merrimon Avenue</h2>
