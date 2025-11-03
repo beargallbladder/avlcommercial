@@ -94,13 +94,13 @@ export default function Home() {
             </p>
 
             {/* Pricing Comparison - Main Feature */}
-            <div className="bg-white rounded-2xl shadow-2xl p-8 mb-8 border-4 border-primary-600">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">Competitive Pricing in Asheville</h3>
+            <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-gray-200">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6 text-center">Competitive Pricing in Asheville</h3>
               <div className="flex justify-center mb-6">
                 <img 
                   src="/images/pricing-comparison.svg" 
                   alt="Pricing Comparison - Our $18/SF vs Area Average $24-28/SF"
-                  className="w-full max-w-4xl rounded-xl shadow-lg"
+                  className="w-full max-w-4xl rounded-lg shadow-md"
                   onError={(e) => {
                     // Show fallback comparison if image doesn't exist
                     const target = e.currentTarget as HTMLImageElement;
@@ -112,27 +112,30 @@ export default function Home() {
                   }}
                 />
                 {/* Fallback pricing comparison */}
-                <div className="pricing-fallback hidden w-full max-w-4xl">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="bg-gradient-to-br from-primary-600 to-primary-700 text-white p-6 rounded-xl shadow-lg">
-                      <div className="text-sm font-semibold mb-2">OUR PRICE</div>
-                      <div className="text-5xl font-bold mb-2">$18/SF</div>
-                      <div className="text-primary-100">530 Merrimon Ave</div>
+                <div className="pricing-fallback hidden w-full max-w-4xl mx-auto">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="bg-gradient-to-br from-primary-600 to-primary-700 text-white p-6 rounded-lg shadow-md border border-primary-700">
+                      <div className="text-xs font-semibold mb-2 uppercase tracking-wide opacity-90">OUR PRICE</div>
+                      <div className="text-4xl font-bold mb-2">$18/SF</div>
+                      <div className="text-sm text-primary-100 mt-1">530 Merrimon Ave</div>
+                      <div className="text-xs text-primary-200 mt-2">All-inclusive</div>
                     </div>
-                    <div className="bg-gray-100 p-6 rounded-xl">
-                      <div className="text-sm font-semibold text-gray-600 mb-2">AREA AVERAGE</div>
-                      <div className="text-5xl font-bold text-gray-900 mb-2">$24-28/SF</div>
-                      <div className="text-gray-600">North Asheville</div>
+                    <div className="bg-white border-2 border-gray-200 p-6 rounded-lg shadow-md">
+                      <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">AREA AVERAGE</div>
+                      <div className="text-4xl font-bold text-gray-900 mb-2">$24-28/SF</div>
+                      <div className="text-sm text-gray-600 mt-1">North Asheville</div>
+                      <div className="text-xs text-gray-500 mt-2">Market rate</div>
                     </div>
-                    <div className="bg-green-50 border-2 border-green-500 p-6 rounded-xl">
-                      <div className="text-sm font-semibold text-green-700 mb-2">YOU SAVE</div>
-                      <div className="text-5xl font-bold text-green-700 mb-2">25-36%</div>
-                      <div className="text-green-600">vs Market Rate</div>
+                    <div className="bg-green-50 border-2 border-green-400 p-6 rounded-lg shadow-md">
+                      <div className="text-xs font-semibold text-green-700 mb-2 uppercase tracking-wide">YOU SAVE</div>
+                      <div className="text-4xl font-bold text-green-700 mb-2">25-36%</div>
+                      <div className="text-sm text-green-600 mt-1">vs Market Rate</div>
+                      <div className="text-xs text-green-500 mt-2">Significant savings</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <p className="text-lg text-gray-600">All-inclusive lease rate includes taxes & insurance</p>
+              <p className="text-center text-gray-600">All-inclusive lease rate includes taxes &amp; insurance</p>
             </div>
 
             {/* Weather Widget */}
