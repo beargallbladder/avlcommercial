@@ -36,9 +36,19 @@ export default function Home() {
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Building2 className="h-8 w-8 text-primary-600" />
-              <h1 className="text-2xl font-bold text-gray-900">AVLCommercial.com</h1>
+            <div className="flex items-center">
+              <img 
+                src="/logo.svg" 
+                alt="AVL Commercial LLC Logo" 
+                className="h-12 w-auto"
+                onError={(e) => {
+                  // Fallback to PNG if SVG doesn't exist
+                  const target = e.currentTarget as HTMLImageElement;
+                  if (target.src.endsWith('.svg')) {
+                    target.src = '/logo.png';
+                  }
+                }}
+              />
             </div>
             <a href="mailto:hello@avlcommercial.com" className="btn-primary">
               Contact Us
