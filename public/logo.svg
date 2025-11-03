@@ -1,0 +1,20 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" fill="white"/>
+  
+  <!-- Star above mountains -->
+  <polygon points="200,20 205,35 220,35 208,45 212,60 200,50 188,60 192,45 180,35 195,35" fill="#143e6a" stroke="#143e6a" stroke-width="1"/>
+  
+  <!-- Mountain range silhouette -->
+  <path d="M 50 80 L 120 40 L 180 60 L 240 30 L 280 50 L 350 80 L 350 140 L 50 140 Z" fill="#143e6a"/>
+  
+  <!-- AVL text - large navy -->
+  <text x="200" y="110" font-family="Arial, sans-serif" font-size="64" font-weight="bold" text-anchor="middle" fill="#143e6a">AVL</text>
+  
+  <!-- COMMERCIAL text - navy -->
+  <text x="200" y="145" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#143e6a">COMMERCIAL</text>
+  
+  <!-- LLC text - forest green -->
+  <text x="200" y="170" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#2d5f3f">LLC</text>
+</svg>
+
