@@ -59,16 +59,16 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-xl sticky top-0 z-50 border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-5">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
+            <div className="flex items-center flex-1">
               <img 
                 src="/images/avlcommerciallog.png" 
                 alt="AVL Commercial LLC Logo" 
-                className="h-10 w-auto"
+                className="h-16 md:h-20 w-auto"
               />
             </div>
-            <a href="mailto:sam@ashevilleapt.com,helen@ashevilleapt.com" className="btn-primary">
+            <a href="mailto:sam@ashevilleapt.com,helen@ashevilleapt.com" className="btn-primary flex-shrink-0">
               Contact Us
             </a>
           </div>
