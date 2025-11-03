@@ -56,16 +56,16 @@ export default function Home() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <main className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <header className="bg-white/80 backdrop-blur-xl sticky top-0 z-50 border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-5">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <img 
                 src="/images/avlcommerciallog.png" 
                 alt="AVL Commercial LLC Logo" 
-                className="h-12 w-auto"
+                className="h-10 w-auto"
               />
             </div>
             <a href="mailto:sam@ashevilleapt.com,helen@ashevilleapt.com" className="btn-primary">
@@ -76,33 +76,36 @@ export default function Home() {
       </header>
 
       {/* Hero Section with Logo and Pricing Comparison */}
-      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+      <section className="pt-20 pb-32 bg-white">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="text-center mb-16">
             {/* Main Logo */}
-            <div className="flex justify-center mb-8">
+            <div className="flex justify-center mb-12">
               <img 
                 src="/images/avlcommerciallog.png" 
                 alt="AVL Commercial LLC Logo" 
-                className="h-48 w-auto max-w-full"
+                className="h-56 w-auto max-w-full"
               />
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-2">530 Merrimon Avenue</h2>
-            <p className="text-xl text-gray-600 flex items-center justify-center gap-2 mb-8">
-              <MapPin className="h-5 w-5" />
+            <h1 className="text-5xl md:text-6xl font-light text-gray-900 mb-4 tracking-tight">
+              530 Merrimon Avenue
+            </h1>
+            <p className="text-lg text-gray-500 flex items-center justify-center gap-2 mb-16 font-light">
+              <MapPin className="h-4 w-4" />
               Asheville, NC 28804
             </p>
 
             {/* Pricing Comparison - Main Feature */}
-            <div className="bg-white rounded-xl shadow-lg p-8 mb-8 border border-gray-200">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6 text-center">Competitive Pricing in Asheville</h3>
-              <div className="flex justify-center mb-6">
+            <div className="mb-16">
+              <h2 className="text-3xl font-light text-gray-900 mb-12 text-center tracking-tight">
+                Competitive Pricing in Asheville
+              </h2>
+              <div className="flex justify-center mb-8">
                 <img 
                   src="/images/pricing-comparison.svg" 
                   alt="Pricing Comparison - Our $18/SF vs Area Average $24-28/SF"
-                  className="w-full max-w-4xl rounded-lg shadow-md"
+                  className="w-full max-w-5xl rounded-2xl shadow-sm"
                   onError={(e) => {
-                    // Show fallback comparison if image doesn't exist
                     const target = e.currentTarget as HTMLImageElement;
                     target.style.display = 'none';
                     const fallback = target.parentElement?.querySelector('.pricing-fallback');
@@ -112,48 +115,50 @@ export default function Home() {
                   }}
                 />
                 {/* Fallback pricing comparison */}
-                <div className="pricing-fallback hidden w-full max-w-4xl mx-auto">
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-gradient-to-br from-primary-600 to-primary-700 text-white p-6 rounded-lg shadow-md border border-primary-700">
-                      <div className="text-xs font-semibold mb-2 uppercase tracking-wide opacity-90">OUR PRICE</div>
-                      <div className="text-4xl font-bold mb-2">$18/SF</div>
-                      <div className="text-sm text-primary-100 mt-1">530 Merrimon Ave</div>
-                      <div className="text-xs text-primary-200 mt-2">All-inclusive</div>
+                <div className="pricing-fallback hidden w-full max-w-5xl mx-auto">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="bg-black text-white p-8 rounded-2xl shadow-sm border border-gray-900">
+                      <div className="text-xs font-medium mb-3 uppercase tracking-widest opacity-70">OUR PRICE</div>
+                      <div className="text-5xl font-light mb-3 tracking-tight">$18<span className="text-3xl">/SF</span></div>
+                      <div className="text-sm text-gray-300 mt-4 font-light">530 Merrimon Ave</div>
+                      <div className="text-xs text-gray-400 mt-2 font-light">All-inclusive</div>
                     </div>
-                    <div className="bg-white border-2 border-gray-200 p-6 rounded-lg shadow-md">
-                      <div className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">AREA AVERAGE</div>
-                      <div className="text-4xl font-bold text-gray-900 mb-2">$24-28/SF</div>
-                      <div className="text-sm text-gray-600 mt-1">North Asheville</div>
-                      <div className="text-xs text-gray-500 mt-2">Market rate</div>
+                    <div className="bg-white border border-gray-200 p-8 rounded-2xl shadow-sm">
+                      <div className="text-xs font-medium text-gray-500 mb-3 uppercase tracking-widest">AREA AVERAGE</div>
+                      <div className="text-5xl font-light text-gray-900 mb-3 tracking-tight">$24<span className="text-3xl">-28/SF</span></div>
+                      <div className="text-sm text-gray-600 mt-4 font-light">North Asheville</div>
+                      <div className="text-xs text-gray-400 mt-2 font-light">Market rate</div>
                     </div>
-                    <div className="bg-green-50 border-2 border-green-400 p-6 rounded-lg shadow-md">
-                      <div className="text-xs font-semibold text-green-700 mb-2 uppercase tracking-wide">YOU SAVE</div>
-                      <div className="text-4xl font-bold text-green-700 mb-2">25-36%</div>
-                      <div className="text-sm text-green-600 mt-1">vs Market Rate</div>
-                      <div className="text-xs text-green-500 mt-2">Significant savings</div>
+                    <div className="bg-green-50 border border-green-100 p-8 rounded-2xl shadow-sm">
+                      <div className="text-xs font-medium text-green-700 mb-3 uppercase tracking-widest">YOU SAVE</div>
+                      <div className="text-5xl font-light text-green-700 mb-3 tracking-tight">25<span className="text-3xl">-36%</span></div>
+                      <div className="text-sm text-green-600 mt-4 font-light">vs Market Rate</div>
+                      <div className="text-xs text-green-500 mt-2 font-light">Significant savings</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <p className="text-center text-gray-600">All-inclusive lease rate includes taxes &amp; insurance</p>
+              <p className="text-center text-gray-500 font-light text-sm">
+                All-inclusive lease rate includes taxes &amp; insurance
+              </p>
             </div>
 
             {/* Weather Widget */}
             {weather && (
-              <div className="inline-flex items-center gap-4 bg-white rounded-lg shadow-md px-6 py-4 mb-8">
-                <Cloud className="h-8 w-8 text-primary-600" />
+              <div className="inline-flex items-center gap-4 bg-white rounded-2xl border border-gray-100 shadow-sm px-6 py-4 mb-16">
+                <Cloud className="h-6 w-6 text-gray-400" />
                 <div className="text-left">
-                  <div className="text-sm text-gray-600">Asheville, NC</div>
-                  <div className="text-2xl font-bold text-gray-900">{weather.temp}°F</div>
-                  <div className="text-sm text-gray-600">{weather.condition}</div>
+                  <div className="text-xs text-gray-500 font-light uppercase tracking-wide">Asheville, NC</div>
+                  <div className="text-2xl font-light text-gray-900 tracking-tight">{weather.temp}°F</div>
+                  <div className="text-xs text-gray-500 font-light">{weather.condition}</div>
                 </div>
               </div>
             )}
           </div>
 
           {/* Property Image Gallery */}
-          <div className="relative">
-            <div className="aspect-video w-full overflow-hidden rounded-xl shadow-2xl">
+          <div className="relative mb-20">
+            <div className="aspect-video w-full overflow-hidden rounded-3xl shadow-sm border border-gray-100">
               <img 
                 src={GALLERY[activeImage].src}
                 alt={GALLERY[activeImage].alt}
@@ -162,21 +167,21 @@ export default function Home() {
                   e.currentTarget.src = GALLERY[activeImage].fallback;
                 }}
               />
-              <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded text-sm">
-                <a href={GALLERY[activeImage].href} target="_blank" rel="noopener noreferrer" className="hover:underline">
+              <div className="absolute bottom-6 left-6 bg-black/60 backdrop-blur-sm text-white px-4 py-2 rounded-full text-xs font-light">
+                <a href={GALLERY[activeImage].href} target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                   {GALLERY[activeImage].credit}
                 </a>
               </div>
             </div>
             
             {/* Thumbnail Navigation */}
-            <div className="flex gap-4 mt-4 justify-center">
+            <div className="flex gap-3 mt-6 justify-center">
               {GALLERY.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveImage(idx)}
-                  className={`relative h-20 w-32 rounded-lg overflow-hidden border-2 transition-all ${
-                    activeImage === idx ? 'border-primary-600 ring-2 ring-primary-200' : 'border-gray-300 hover:border-gray-400'
+                  className={`relative h-16 w-24 rounded-xl overflow-hidden border transition-all ${
+                    activeImage === idx ? 'border-gray-900 ring-1 ring-gray-200' : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
                   <img 
@@ -195,100 +200,145 @@ export default function Home() {
       </section>
 
       {/* Key Stats */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow text-center">
-              <Calendar className="h-8 w-8 text-primary-600 mx-auto mb-2" />
-              <div className="text-3xl font-bold text-gray-900">1972</div>
-              <div className="text-gray-600">Year Built</div>
+      <section className="py-20 bg-white border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="card p-8 text-center">
+              <Calendar className="h-6 w-6 text-gray-400 mx-auto mb-4" />
+              <div className="text-4xl font-light text-gray-900 mb-2 tracking-tight">1972</div>
+              <div className="text-sm text-gray-500 font-light">Year Built</div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow text-center">
-              <Car className="h-8 w-8 text-primary-600 mx-auto mb-2" />
-              <div className="text-3xl font-bold text-gray-900">33</div>
-              <div className="text-gray-600">Parking Spaces</div>
+            <div className="card p-8 text-center">
+              <Car className="h-6 w-6 text-gray-400 mx-auto mb-4" />
+              <div className="text-4xl font-light text-gray-900 mb-2 tracking-tight">33</div>
+              <div className="text-sm text-gray-500 font-light">Parking Spaces</div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow text-center">
-              <Building2 className="h-8 w-8 text-primary-600 mx-auto mb-2" />
-              <div className="text-3xl font-bold text-gray-900">5,850 SF</div>
-              <div className="text-gray-600">Building Size</div>
+            <div className="card p-8 text-center">
+              <Building2 className="h-6 w-6 text-gray-400 mx-auto mb-4" />
+              <div className="text-4xl font-light text-gray-900 mb-2 tracking-tight">5,850 SF</div>
+              <div className="text-sm text-gray-500 font-light">Building Size</div>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow text-center">
-              <TrendingUp className="h-8 w-8 text-primary-600 mx-auto mb-2" />
-              <div className="text-3xl font-bold text-gray-900">$18/SF</div>
-              <div className="text-gray-600">Lease Rate</div>
+            <div className="card p-8 text-center">
+              <TrendingUp className="h-6 w-6 text-gray-400 mx-auto mb-4" />
+              <div className="text-4xl font-light text-gray-900 mb-2 tracking-tight">$18/SF</div>
+              <div className="text-sm text-gray-500 font-light">Lease Rate</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Property Details */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Property Details</h3>
+      <section className="py-20 bg-white border-t border-gray-100">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+          <h2 className="text-3xl font-light text-gray-900 mb-16 text-center tracking-tight">Property Details</h2>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {/* Location & Access */}
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <MapPin className="h-6 w-6 text-primary-600" />
+            <div className="card p-8">
+              <h3 className="text-xl font-light text-gray-900 mb-6 flex items-center gap-3 tracking-tight">
+                <MapPin className="h-5 w-5 text-gray-400" />
                 Location & Access
-              </h4>
-              <ul className="space-y-2 text-gray-700">
-                <li>• Merrimon Ave (US Hwy 25) in North Asheville</li>
-                <li>• 22 minutes to Asheville Regional Airport (15.9 mi)</li>
-                <li>• High-visibility corridor with excellent signage</li>
-                <li>• Bus line access available</li>
-                <li>• 24-hour access for tenants</li>
+              </h3>
+              <ul className="space-y-3 text-gray-600 font-light">
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>Merrimon Ave (US Hwy 25) in North Asheville</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>22 minutes to Asheville Regional Airport (15.9 mi)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>High-visibility corridor with excellent signage</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>Bus line access available</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>24-hour access for tenants</span>
+                </li>
               </ul>
             </div>
 
             {/* Parking & Infrastructure */}
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Car className="h-6 w-6 text-primary-600" />
+            <div className="card p-8">
+              <h3 className="text-xl font-light text-gray-900 mb-6 flex items-center gap-3 tracking-tight">
+                <Car className="h-5 w-5 text-gray-400" />
                 Parking & Infrastructure
-              </h4>
-              <ul className="space-y-2 text-gray-700">
-                <li>• 33 surface parking spaces</li>
-                <li>• ADA accessible parking available</li>
-                <li>• Building Class C, 1 story</li>
-                <li>• Central heating and air conditioning</li>
-                <li>• Storage space available</li>
+              </h3>
+              <ul className="space-y-3 text-gray-600 font-light">
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>33 surface parking spaces</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>ADA accessible parking available</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>Building Class C, 1 story</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>Central heating and air conditioning</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>Storage space available</span>
+                </li>
               </ul>
             </div>
 
             {/* Available Spaces */}
-            <div className="bg-white p-6 rounded-lg shadow-lg">
-              <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Building2 className="h-6 w-6 text-primary-600" />
+            <div className="card p-8">
+              <h3 className="text-xl font-light text-gray-900 mb-6 flex items-center gap-3 tracking-tight">
+                <Building2 className="h-5 w-5 text-gray-400" />
                 Available Spaces
-              </h4>
-              <ul className="space-y-2 text-gray-700">
-                <li>• Three suites currently available</li>
-                <li>• Sizes ranging from 1,000 SF to 1,450 SF</li>
-                <li>• $18/SF lease rate (includes taxes & insurance)</li>
-                <li>• Monument signage available</li>
-                <li>• Reception area available</li>
+              </h3>
+              <ul className="space-y-3 text-gray-600 font-light">
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>Three suites currently available</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>Sizes ranging from 1,000 SF to 1,450 SF</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>$18/SF lease rate (includes taxes &amp; insurance)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>Monument signage available</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-3">•</span>
+                  <span>Reception area available</span>
+                </li>
               </ul>
             </div>
 
             {/* Contact CTA */}
-            <div className="bg-primary-50 p-6 rounded-lg shadow-lg border-2 border-primary-200">
-              <h4 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                <Users className="h-6 w-6 text-primary-600" />
+            <div className="card p-8 bg-gray-50 border-gray-200">
+              <h3 className="text-xl font-light text-gray-900 mb-6 flex items-center gap-3 tracking-tight">
+                <Users className="h-5 w-5 text-gray-400" />
                 Get More Information
-              </h4>
-              <p className="text-gray-700 mb-4">
+              </h3>
+              <p className="text-gray-600 mb-6 font-light">
                 Interested in this property? Contact us for floor plans, zoning details, and to schedule a showing.
               </p>
-              <div className="space-y-2">
-                <a href="mailto:sam@ashevilleapt.com" className="flex items-center gap-2 text-primary-600 hover:text-primary-700">
-                  <Mail className="h-5 w-5" />
+              <div className="space-y-3">
+                <a href="mailto:sam@ashevilleapt.com" className="flex items-center gap-3 text-gray-900 hover:text-gray-700 transition-colors font-light">
+                  <Mail className="h-4 w-4" />
                   <span>sam@ashevilleapt.com</span>
                 </a>
-                <a href="mailto:helen@ashevilleapt.com" className="flex items-center gap-2 text-primary-600 hover:text-primary-700">
-                  <Mail className="h-5 w-5" />
+                <a href="mailto:helen@ashevilleapt.com" className="flex items-center gap-3 text-gray-900 hover:text-gray-700 transition-colors font-light">
+                  <Mail className="h-4 w-4" />
                   <span>helen@ashevilleapt.com</span>
                 </a>
               </div>
@@ -298,14 +348,10 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} AVLCommercial.com. Property information sourced from public listings. 
-            Images used with attribution - replace with your own for production use.
-          </p>
-          <p className="text-gray-500 text-xs mt-2">
-            Note: Verify all details with official sources. Property specifications subject to change.
+      <footer className="bg-white border-t border-gray-100 py-12">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <p className="text-gray-400 text-xs font-light">
+            © {new Date().getFullYear()} AVL Commercial LLC. Property information sourced from public listings.
           </p>
         </div>
       </footer>
