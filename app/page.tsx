@@ -1,7 +1,7 @@
 'use client'
 
-import { useState } from 'react'
-import { Building2, MapPin, Phone, Mail, Car, Calendar, TrendingUp, Users } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Building2, MapPin, Phone, Mail, Car, Calendar, TrendingUp, Users, Cloud } from 'lucide-react'
 
 const GALLERY = [
   { 
@@ -29,6 +29,31 @@ const GALLERY = [
 
 export default function Home() {
   const [activeImage, setActiveImage] = useState(0)
+  const [weather, setWeather] = useState<{ temp: number; condition: string; icon: string } | null>(null)
+
+  useEffect(() => {
+    // Fetch Asheville weather
+    const fetchWeather = async () => {
+      try {
+        // Using OpenWeatherMap API (free tier)
+        const response = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=Asheville,NC,US&units=imperial&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY || 'demo'}`
+        )
+        if (response.ok) {
+          const data = await response.json()
+          setWeather({
+            temp: Math.round(data.main.temp),
+            condition: data.weather[0].main,
+            icon: data.weather[0].icon
+          })
+        }
+      } catch (error) {
+        // Fallback to static data if API fails
+        setWeather({ temp: 68, condition: 'Partly Cloudy', icon: '02d' })
+      }
+    }
+    fetchWeather()
+  }, [])
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -50,14 +75,14 @@ export default function Home() {
                 }}
               />
             </div>
-            <a href="mailto:hello@avlcommercial.com" className="btn-primary">
+            <a href="mailto:sam@ashevilleapt.com,helen@ashevilleapt.com" className="btn-primary">
               Contact Us
             </a>
           </div>
         </div>
       </header>
 
-      {/* Hero Section with Logo */}
+      {/* Hero Section with Logo and Pricing Comparison */}
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -77,10 +102,64 @@ export default function Home() {
               />
             </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-2">530 Merrimon Avenue</h2>
-            <p className="text-xl text-gray-600 flex items-center justify-center gap-2">
+            <p className="text-xl text-gray-600 flex items-center justify-center gap-2 mb-8">
               <MapPin className="h-5 w-5" />
               Asheville, NC 28804
             </p>
+
+            {/* Pricing Comparison - Main Feature */}
+            <div className="bg-white rounded-2xl shadow-2xl p-8 mb-8 border-4 border-primary-600">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">Competitive Pricing in Asheville</h3>
+              <div className="flex justify-center mb-6">
+                <img 
+                  src="/images/pricing-comparison.svg" 
+                  alt="Pricing Comparison - Our $18/SF vs Area Average $24-28/SF"
+                  className="w-full max-w-4xl rounded-xl shadow-lg"
+                  onError={(e) => {
+                    // Show fallback comparison if image doesn't exist
+                    const target = e.currentTarget as HTMLImageElement;
+                    target.style.display = 'none';
+                    const fallback = target.parentElement?.querySelector('.pricing-fallback');
+                    if (fallback) {
+                      (fallback as HTMLElement).style.display = 'block';
+                    }
+                  }}
+                />
+                {/* Fallback pricing comparison */}
+                <div className="pricing-fallback hidden w-full max-w-4xl">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="bg-gradient-to-br from-primary-600 to-primary-700 text-white p-6 rounded-xl shadow-lg">
+                      <div className="text-sm font-semibold mb-2">OUR PRICE</div>
+                      <div className="text-5xl font-bold mb-2">$18/SF</div>
+                      <div className="text-primary-100">530 Merrimon Ave</div>
+                    </div>
+                    <div className="bg-gray-100 p-6 rounded-xl">
+                      <div className="text-sm font-semibold text-gray-600 mb-2">AREA AVERAGE</div>
+                      <div className="text-5xl font-bold text-gray-900 mb-2">$24-28/SF</div>
+                      <div className="text-gray-600">North Asheville</div>
+                    </div>
+                    <div className="bg-green-50 border-2 border-green-500 p-6 rounded-xl">
+                      <div className="text-sm font-semibold text-green-700 mb-2">YOU SAVE</div>
+                      <div className="text-5xl font-bold text-green-700 mb-2">25-36%</div>
+                      <div className="text-green-600">vs Market Rate</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p className="text-lg text-gray-600">All-inclusive lease rate includes taxes & insurance</p>
+            </div>
+
+            {/* Weather Widget */}
+            {weather && (
+              <div className="inline-flex items-center gap-4 bg-white rounded-lg shadow-md px-6 py-4 mb-8">
+                <Cloud className="h-8 w-8 text-primary-600" />
+                <div className="text-left">
+                  <div className="text-sm text-gray-600">Asheville, NC</div>
+                  <div className="text-2xl font-bold text-gray-900">{weather.temp}°F</div>
+                  <div className="text-sm text-gray-600">{weather.condition}</div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Property Image Gallery */}
@@ -215,13 +294,13 @@ export default function Home() {
                 Interested in this property? Contact us for floor plans, zoning details, and to schedule a showing.
               </p>
               <div className="space-y-2">
-                <a href="tel:YOUR-PHONE" className="flex items-center gap-2 text-primary-600 hover:text-primary-700">
-                  <Phone className="h-5 w-5" />
-                  <span>Call: (XXX) XXX-XXXX</span>
-                </a>
-                <a href="mailto:hello@avlcommercial.com" className="flex items-center gap-2 text-primary-600 hover:text-primary-700">
+                <a href="mailto:sam@ashevilleapt.com" className="flex items-center gap-2 text-primary-600 hover:text-primary-700">
                   <Mail className="h-5 w-5" />
-                  <span>hello@avlcommercial.com</span>
+                  <span>sam@ashevilleapt.com</span>
+                </a>
+                <a href="mailto:helen@ashevilleapt.com" className="flex items-center gap-2 text-primary-600 hover:text-primary-700">
+                  <Mail className="h-5 w-5" />
+                  <span>helen@ashevilleapt.com</span>
                 </a>
               </div>
             </div>
