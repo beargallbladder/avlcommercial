@@ -57,10 +57,25 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section with Gallery */}
-      <section className="py-12 bg-white">
+      {/* Hero Section with Logo */}
+      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
+          <div className="text-center mb-12">
+            {/* Main Logo */}
+            <div className="flex justify-center mb-8">
+              <img 
+                src="/logo.svg" 
+                alt="AVL Commercial LLC Logo" 
+                className="h-48 w-auto max-w-full"
+                onError={(e) => {
+                  // Fallback to PNG if SVG doesn't exist
+                  const target = e.currentTarget as HTMLImageElement;
+                  if (target.src.endsWith('.svg')) {
+                    target.src = '/logo.png';
+                  }
+                }}
+              />
+            </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-2">530 Merrimon Avenue</h2>
             <p className="text-xl text-gray-600 flex items-center justify-center gap-2">
               <MapPin className="h-5 w-5" />
@@ -68,7 +83,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Image Gallery */}
+          {/* Property Image Gallery */}
           <div className="relative">
             <div className="aspect-video w-full overflow-hidden rounded-xl shadow-2xl">
               <img 
