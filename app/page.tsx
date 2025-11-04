@@ -34,16 +34,16 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       {/* Header */}
       <header className="bg-white sticky top-0 z-50 border-b border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
+          <div className="flex items-center justify-between gap-6">
+            <div className="flex items-center flex-1">
               <img 
                 src="/images/avlcommerciallog.png" 
                 alt="AVL Commercial LLC Logo" 
-                className="h-14 md:h-18 w-auto"
+                className="h-20 md:h-24 lg:h-28 w-auto"
               />
             </div>
-            <a href="mailto:sam@ashevilleapt.com,helen@ashevilleapt.com" className="btn-primary">
+            <a href="mailto:sam@ashevilleapt.com,helen@ashevilleapt.com" className="btn-primary flex-shrink-0">
               Contact Us
             </a>
           </div>
@@ -57,6 +57,14 @@ export default function Home() {
             {/* Left Column - Content */}
             <div className="space-y-8">
               <div>
+                {/* Logo in Hero */}
+                <div className="mb-8">
+                  <img 
+                    src="/images/avlcommerciallog.png" 
+                    alt="AVL Commercial LLC Logo" 
+                    className="h-24 md:h-32 lg:h-40 w-auto"
+                  />
+                </div>
                 <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-gray-900 mb-6 tracking-tight leading-tight">
                   530 Merrimon Avenue
                 </h1>
